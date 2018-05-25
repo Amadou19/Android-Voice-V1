@@ -1,0 +1,26 @@
+<resources>
+    <string name="app_name">Android Voice</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="enregistrement">Enregistrement</string>
+    <string name="historique">Historique</string>
+
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+
+    <string name="enregistreentText">Appuyer sur le micro pour démarrer un enregistrement</string>
+    <string name="Hint"><font size="150">...</font><font size="10" /></string>
+    <string name="image_micro">Image Micro</string>
+
+
+    <string name="hello_world">Hello world!</string>
+    <string name="speech_prompt">Je vous écoute&#8230;</string>
+    <string name="speech_not_supported">"La reconnaissance vocale n'est pas prise en charge par votre terminal",</string>
+    <string name="Image">Image Screen</string>
+
+    <string name="title_activity_fullscreen">FullscreenActivity</string>
+    <string name="dummy_button">Dummy Button</string>
+    <string name="dummy_content">DUMMY\nCONTENT</string>
+    <string name="main">...</string>
+    <string name="chek">Vous n\'avez encor enregistré aucun message</string>
+
+</resources>
