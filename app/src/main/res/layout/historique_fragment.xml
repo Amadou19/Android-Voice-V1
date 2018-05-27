@@ -6,6 +6,15 @@
     android:layout_height="match_parent"
     tools:context=".View.Enregistrement_fragment">
 
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:id="@+id/chek"
+        android:padding="15dp"
+        android:textStyle="italic"
+        android:textSize="16dp"
+        android:text="@string/chek" />
+
     <android.support.v7.widget.RecyclerView
         android:layout_width="match_parent"
         android:layout_height="match_parent"

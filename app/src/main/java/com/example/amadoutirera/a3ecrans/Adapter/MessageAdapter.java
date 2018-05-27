@@ -1,4 +1,4 @@
-package com.example.amadoutirera.a3ecrans.ViewModel;
+package com.example.amadoutirera.a3ecrans.Adapter;
 
 import android.support.annotation.NonNull;
 import android.support.v7.widget.CardView;
@@ -12,7 +12,6 @@ import android.widget.TextView;
 import com.example.amadoutirera.a3ecrans.Model.MessageModel;
 import com.example.amadoutirera.a3ecrans.R;
 
-import java.util.ArrayList;
 import java.util.List;
 
 // Adapdateur RecyclerView  Historique Fragment
@@ -20,12 +19,11 @@ import java.util.List;
 public class MessageAdapter extends RecyclerView.Adapter <MessageAdapter.NotViewHolder>{
     private List<MessageModel> messageList;
 
+    //Constructeur
     public MessageAdapter(List<MessageModel> messageListe) {
         this.messageList = messageListe;
 
     }
-
-
 
 
     @NonNull
@@ -40,32 +38,29 @@ public class MessageAdapter extends RecyclerView.Adapter <MessageAdapter.NotView
     public void onBindViewHolder(@NonNull final NotViewHolder holder, int position) {
         MessageModel messageModel = messageList.get(position);
 
-        holder.messageId.setText(String.valueOf(position));
+        holder.messageId.setText(String.valueOf(position+1));
         holder.message.setText(messageModel.getMessage());
 
     }
 
-    public void addMessage(MessageModel messageModel){
-        messageList.add(messageModel);
+    public void addMessage(List<MessageModel> messageList){
+        this.messageList = messageList;
         notifyDataSetChanged();
 
     }
 
     @Override
     public int getItemCount() {
-
         return messageList.size();
 
     }
 
-
+    /******************************************************************/
     public class NotViewHolder extends RecyclerView.ViewHolder {
 
         public CardView histotiqueCardID;
         public TextView messageId;
         public TextView message;
-
-
 
         public NotViewHolder(View itemView) {
             super(itemView);

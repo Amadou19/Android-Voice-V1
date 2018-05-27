@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.speech.RecognizerIntent;
 import android.support.v4.app.Fragment;
+import android.text.method.ScrollingMovementMethod;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,6 +19,7 @@ import com.example.amadoutirera.a3ecrans.Model.MessageModel;
 import com.example.amadoutirera.a3ecrans.R;
 import com.example.amadoutirera.a3ecrans.ViewModel.SharedViewModel;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Locale;
 
@@ -29,7 +31,6 @@ public class Enregistrement_fragment extends Fragment {
     private static final int REQ_CODE_SPEECH_INPUT = 100;
     private SharedViewModel model;
 
-    public Enregistrement_fragment() { }
 
 
         @Override
@@ -38,6 +39,9 @@ public class Enregistrement_fragment extends Fragment {
             View rootView = inflater.inflate(R.layout.enregistrement_fragment, container, false);
             textOutput = (TextView) rootView.findViewById(R.id.textOutput);
             micButton = (ImageButton) rootView.findViewById(R.id.micButton);
+
+            /**************************************************************/
+            textOutput.setMovementMethod(new ScrollingMovementMethod());
 
             /**************************************************************/
             micButton.setOnClickListener(new View.OnClickListener() {
@@ -73,24 +77,22 @@ public class Enregistrement_fragment extends Fragment {
                         if (resultCode == getActivity().RESULT_OK && null != data) {
                             List<String> result = data.getStringArrayListExtra(RecognizerIntent.EXTRA_RESULTS);
 
-                            // Convertir la premiere lettre en majuscule
+                            // Converti la premiere lettre en majuscule
                             String resultText = result.get(0).substring(0, 1).toUpperCase() + result.get(0).substring(1);;
                             textOutput.setText(resultText);
-                            updateRecyclerVier(resultText);
-
+                            SharedViewModelNotify(resultText);
                         }
                         break;
                     }
 
                 }
             }
-            /**************************** me ajour des Donné au niveau du  ViewModel ==>SharedViewModel  ***************************/
+            /**************************** Ajoute le nouveau message au  niveau du ViewModel ==>SharedViewModel  ***************************/
 
-            public void updateRecyclerVier(String message) {
+            public void SharedViewModelNotify(String message) {
                 model = ViewModelProviders.of(getActivity()).get(SharedViewModel.class);
-                model.select(new MessageModel(message));
+                model.recovers(message);
             }
-
             /*******************************************************************/
 
 

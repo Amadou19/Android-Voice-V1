@@ -23,7 +23,7 @@
             android:name=".View.Viewpager_BC"
             android:label="@string/title_activity_main2"
             android:theme="@style/AppTheme.NoActionBar"
-            android:screenOrientation="portrait"/>
+            />
     </application>
 
 </manifest>
