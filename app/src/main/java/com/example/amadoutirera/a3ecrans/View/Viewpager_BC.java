@@ -34,8 +34,7 @@ public class Viewpager_BC extends AppCompatActivity{
         tabLayout.addOnTabSelectedListener(new TabLayout.ViewPagerOnTabSelectedListener(mViewPager));
     }
 
-
-
+    /****************************************************************/
 
     public class ViewpagerAdapter extends FragmentPagerAdapter {
 

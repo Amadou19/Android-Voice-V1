@@ -19,7 +19,7 @@ public class SharedViewModel extends ViewModel {
         messageModelMutableLiveData.setValue(messageListe);
     }
 
-    // Notify les observateur d'un evventuelle changement
+    // Notify les observateur d'un eventuelle changement
     public MutableLiveData<List<MessageModel>> getMessageModelMutableLiveData() {
         return messageModelMutableLiveData;
     }

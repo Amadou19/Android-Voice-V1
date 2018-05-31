@@ -49,6 +49,12 @@ public class MessageAdapter extends RecyclerView.Adapter <MessageAdapter.NotView
 
     }
 
+   /* public void addMessage(List<MessageModel> messageList){
+        this.messageList = messageList;
+        notifyDataSetChanged();
+
+    }*/
+
     @Override
     public int getItemCount() {
         return messageList.size();

@@ -2,12 +2,15 @@ package com.example.amadoutirera.a3ecrans.View;
 
 import android.arch.lifecycle.ViewModelProviders;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.support.v7.widget.helper.ItemTouchHelper;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.TextView;
 
 import com.example.amadoutirera.a3ecrans.Adapter.MessageAdapter;
@@ -26,6 +29,17 @@ public class Historique_fragment extends Fragment {
         public Historique_fragment() { }
 
 
+    // Observe tous les changement au niveau des donnés et les ajoute dinamiquement a notre vue en fontion du cycle de vie de lactivité
+    @Override
+    public void onActivityCreated(@Nullable Bundle savedInstanceState) {
+        super.onActivityCreated(savedInstanceState);
+        SharedViewModel model = ViewModelProviders.of(getActivity()).get(SharedViewModel.class);
+        model.getMessageModelMutableLiveData().observe(this, messageList ->{
+            chek.setVisibility(View.GONE);
+            messageAdapter.addMessage(messageList);
+        });
+    }
+
         @Override
         public View onCreateView(LayoutInflater inflater, ViewGroup container,
                                  Bundle savedInstanceState) {
@@ -42,15 +56,8 @@ public class Historique_fragment extends Fragment {
 
             /********************************************************************************/
 
-            // Observe tous les changement au niveau des donnés et les ajoute dinamiquement a notre vue en fontion du cycle de vie de lactivité
-            SharedViewModel model = ViewModelProviders.of(getActivity()).get(SharedViewModel.class);
-            model.getMessageModelMutableLiveData().observe(getActivity(), messageList ->{
-                chek.setVisibility(View.GONE);
-                messageAdapter.addMessage(messageList);
-            });
-            /********************************************************************************/
-
             return rootView;
         }
+
     }
 

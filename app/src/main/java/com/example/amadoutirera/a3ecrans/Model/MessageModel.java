@@ -1,6 +1,8 @@
 package com.example.amadoutirera.a3ecrans.Model;
 
-public class MessageModel {
+import android.arch.lifecycle.ViewModel;
+
+public class MessageModel extends ViewModel {
     String message;
 
     public MessageModel(String message) {
